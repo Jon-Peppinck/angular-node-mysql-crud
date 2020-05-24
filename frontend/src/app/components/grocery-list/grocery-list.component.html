@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">CRUD operations</mat-toolbar>
+<h1
+  style="
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 100px;
+  "
+>
+  Shopping list
+</h1>
+<mat-card style="width: 50%; margin: auto;">
+  <button
+    (click)="post(groceryInput.value)"
+    mat-fab
+    color="primary"
+    style="float: right;"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-form-field style="width: 100%;">
+    <mat-label>Grocery item</mat-label>
+    <input #groceryInput matInput placeholder="Ex. Rice" />
+  </mat-form-field>
+
+  <mat-list>
+    <mat-list-item *ngFor="let grocery of groceries$ | async">
+      <span style="font-weight: bold;"
+        >{{ grocery.id }}. {{ grocery.item }}</span
+      >
+      <span style="position: absolute; right: 0;">
+        <button mat-icon-button>
+          <mat-icon
+            (click)="update(grocery.id, groceryInput.value)"
+            color="primary"
+          >
+            edit
+          </mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon (click)="delete(grocery.id)" color="warn">
+            delete
+          </mat-icon>
+        </button>
+      </span>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
