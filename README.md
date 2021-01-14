@@ -10,7 +10,7 @@
   "host": "localhost",
   "user": "root",
   "database": "groceries",
-  "password": "< password >"
+  "password": "<password>"
 }
 ```
 
